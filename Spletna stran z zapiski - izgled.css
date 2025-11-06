@@ -1,0 +1,24 @@
+id {
+    color: red;
+    font-weight: bold;
+    font-size: 100px;
+}
+
+h1 {
+    color: #00008b;
+}
+
+h2 {
+    color: #4f4fb6;
+}
+
+h3 {
+    color: #a4a4f7;
+}
+
+body {
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    background-color: aliceblue;
+}
