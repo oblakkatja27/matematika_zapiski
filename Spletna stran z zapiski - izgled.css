@@ -1,24 +1,174 @@
-id {
-    color: red;
-    font-weight: bold;
-    font-size: 100px;
+/* ====== OSNOVE ====== */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 24px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+
+  background-color: #f3f6fb;
+  background-image: url("formule.jpg");
+  background-repeat: repeat;
+  background-size: 700px;
 }
 
+/* overlay, ki "spere" formule */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(243, 246, 251, 0.92);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ====== LAYOUT ====== */
+.page {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 12px;
+}
+
+/* ====== NASLOVI ====== */
 h1 {
-    color: #00008b;
+  margin-top: 42px;
+  margin-bottom: 10px;
+  font-size: 30px;
+  color: #1f6f8b;
+  border-bottom: 3px solid #cfe3ef;
+  padding-bottom: 6px;
 }
 
 h2 {
-    color: #4f4fb6;
+  margin: 0;
+  font-size: 22px;
+  color: #17586f;
 }
 
 h3 {
-    color: #a4a4f7;
+  margin: 8px 0 0;
+  font-size: 16px;
+  color: #4a6f82;
+  font-weight: 600;
 }
 
-body {
-    font-size: 15px;
-    font-family: 'Times New Roman', Times, serif;
-    text-align: center;
-    background-color: aliceblue;
+/* ====== BLOKI (bele kartice) ====== */
+.block {
+  background: #ffffff;
+  border: 1px solid #d8e0ef;
+  border-radius: 14px;
+  padding: 14px 18px;
+  box-shadow: 0 10px 25px rgba(20, 40, 80, 0.07);
+  margin: 10px 0 24px;
+}
+
+.block-title { margin: 0; }
+.block-subtitle { margin: 8px 0 0; }
+
+/* ====== SEZNAMI ====== */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+
+/* ====== LINKI kot "kvadratki" čez celo širino ====== */
+.list a {
+  display: block;              /* KLJUČNO: full width */
+  width: 100%;
+  padding: 10px 12px;
+  margin: 8px 0;
+
+  text-decoration: none;
+  color: #17586f;
+
+  background: #f4f8ff;
+  border: 1px solid #e6efff;
+  border-radius: 10px;
+
+  transition: background-color 0.15s ease, transform 0.05s ease;
+}
+
+.list a:hover {
+  background: #eaf3ff;
+}
+
+.list a:active {
+  transform: scale(0.995);
+}
+
+/* ====== OSNOVNA SOLA: 2 stolpca + 9 na sredini ====== */
+.os-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.os-last {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.os-last a {
+  width: min(260px, 100%);
+  text-align: center;
+}
+
+/* ====== DVA BLOKA V ENI VRSTI (SŠ + Faks) ====== */
+.two-blocks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+/* ====== MOBILNA PRILAGODITEV ====== */
+@media (max-width: 700px) {
+  body { padding: 16px; }
+  h1 { font-size: 24px; }
+
+  .os-grid,
+  .two-blocks {
+    grid-template-columns: 1fr;
+  }
+
+  .os-last a {
+    width: 100%;
+  }
+}
+
+/* ====== IZPOSTAVLJENA ZBIRKA NALOG ====== */
+.block.highlight {
+  border: 2px solid #1f6f8b;
+  background: linear-gradient(
+    135deg,
+    #f4f9fc,
+    #ffffff
+  );
+}
+
+.main-link {
+  display: block;
+  margin-top: 12px;
+  padding: 14px 16px;
+
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #0f3d4c;
+
+  background: #e8f1f8;
+  border: 1px solid #cfe3ef;
+  border-radius: 12px;
+}
+
+.main-link:hover {
+  background: #dbeaf5;
+}
+
+/* ====== NASLOV 'SNOVI' ====== */
+h2 {
+  margin-top: 28px;
 }
